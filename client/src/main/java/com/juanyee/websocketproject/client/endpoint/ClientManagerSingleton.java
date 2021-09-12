@@ -31,8 +31,8 @@ public class ClientManagerSingleton {
         return endpoint.isSessionOpen();
     }
 
-    public void conectarWebSocket() throws URISyntaxException, DeploymentException, IOException {
-        System.out.println("SINGLETON>\t\tConectando...");
+    public void connectToWebSocket() throws URISyntaxException, DeploymentException, IOException {
+        System.out.println("SINGLETON>\t\tConnecting...");
         try {
             client.connectToServer(endpoint, new URI(wsUrl));
         } catch (Exception e) {
@@ -40,10 +40,10 @@ public class ClientManagerSingleton {
         }
     }
 
-    public void enviarMensaje(String mensaje) throws IOException {
+    public void sendMessage(String message) throws IOException {
         Request req = new Request();
         req.setCommand(Request.TYPE.CLIENT_TO_SERVER__SEND_MESSAGE_TO_SERVER);
-        req.setMessage(mensaje);
+        req.setMessage(message);
         endpoint.sendRequestByTextMessage(req);
     }
 }

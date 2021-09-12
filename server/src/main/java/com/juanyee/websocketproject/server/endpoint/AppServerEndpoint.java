@@ -62,8 +62,12 @@ public class AppServerEndpoint {
                     switch (req.getCommand()) {
                         case CLIENT_TO_SERVER__SEND_MESSAGE_TO_SERVER:
                             // servidor recibe los datos del clier
-                            System.out.println(String.format("[onMessage][%s][%s]: received", session.getId(),
-                                    req.getCommand()));
+                            System.out.println(String.format("[onMessage][%s][%s]: Received message: %s", session.getId(),
+                                    req.getCommand(), req.getMessage()));
+
+                            resp.setCommand(Request.TYPE.SERVER_TO_CLIENT__SEND_MESSAGE_TO_CLIENT);
+                            resp.setMessage("Yeah, I'm here");
+                            sendRequestByTextMessage(session, resp);
                             break;
                         default:
                             System.out.println("Default");

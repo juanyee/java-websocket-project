@@ -88,8 +88,8 @@ public class AppClientEndpoint extends Endpoint {
             Request resp = new Request();
             try {
                 switch(req.getCommand()) {
-                    case CLIENT_TO_SERVER__SEND_MESSAGE_TO_SERVER:
-                        System.out.println("ENDPOINT>\tMessage received");
+                    case SERVER_TO_CLIENT__SEND_MESSAGE_TO_CLIENT:
+                        System.out.println("ENDPOINT>\tMessage received: "+req.getMessage());
                         break;
 
                     default:

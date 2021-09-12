@@ -26,7 +26,7 @@ public class ServerApplication {
 		Server server = new Server(
 				"localhost", // localhost
 				8025, // 8025
-				"central", // /central
+				"/central", // /central
 				properties,
 				beanClasses);
 
